@@ -1,0 +1,10 @@
+name: ortools-env
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - numpy
+  - pandas
+  - pip
+  - pip:
+      - ortools==9.14.6206
