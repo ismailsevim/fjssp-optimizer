@@ -1,3 +1,0 @@
-numpy
-pandas
-ortools==9.14.6206
