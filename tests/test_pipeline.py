@@ -5,11 +5,11 @@ from fjssp.solver import solve_model
 from fjssp.visualizer import visualize_schedule
 
 
-@pytest.mark.parametrize("instance_file", [
-    "data/instance_small_makespan.json",
-    "data/instance_large_tardiness.json"
+@pytest.mark.parametrize("instance_file, objective_type", [
+    ("data/instance_small.json", "makespan"),
+    ("data/instance_large.json", "tardiness")
 ])
-def test_fjssp_pipeline(instance_file):
+def test_fjssp_pipeline(instance_file, objective_type):
     """
     Full integration test for the FJSSP optimizer pipeline.
     Covers data loading, model building, solving, and visualization.
@@ -19,8 +19,10 @@ def test_fjssp_pipeline(instance_file):
 
     # --- Load data ---
     data = load_instance(instance_file)
-    assert "objective" in data, "Objective key missing in instance JSON."
-    objective_type = data["objective"]
+
+    # ✅ Inject objective directly (since JSON no longer contains it)
+    data["objective"] = objective_type
+
     print(f"Objective type: {objective_type}")
 
     # --- Build model ---
@@ -28,10 +30,10 @@ def test_fjssp_pipeline(instance_file):
     assert model is not None, "Model not created."
     assert objective_var is not None, "Objective variable missing."
     assert isinstance(all_tasks, dict), "Tasks should be a dictionary."
-    assert obj_type == objective_type, "Objective mismatch between JSON and model."
+    assert obj_type == objective_type, "Objective mismatch between provided and model."
 
     # --- Solve model ---
-    obj_value, schedule = solve_model(model, objective_var, all_tasks)
+    obj_value, schedule, status = solve_model(model, objective_var, all_tasks)
     assert obj_value is not None, "Solver did not return an objective value."
     assert isinstance(schedule, list), "Schedule must be a list."
     assert len(schedule) > 0, "Schedule is empty."
