@@ -68,6 +68,8 @@ python main.py --instance data/instance_medium.json --objective tardiness
 ### Display
 The commands for different objective functions generate and display a Gantt Chart. An example output is shown below:
 
+![Gannt Chart](GanntChart.png)
+
 To skip the generation and display of the Gantt chart (useful for running tests, batch processing, or on environments without a display), use the `--no_plot` flag. The solution metrics will still be printed to the console. Example:
 ```bash
 python main.py --instance data/instance_medium.json --objective makespan --no_plot
