@@ -1,0 +1,58 @@
+{
+  "machines": ["M1", "M2", "M3", "M4", "M5"],
+  "jobs": [
+    {
+      "job_id": 1,
+      "due_date": 28,
+      "tasks": [
+        {"name": "Op1", "machines": {"M1": 3, "M2": 5, "M3": 4}},
+        {"name": "Op2", "machines": {"M2": 6, "M4": 7}},
+        {"name": "Op3", "machines": {"M1": 4, "M3": 5, "M5": 3}},
+        {"name": "Op4", "machines": {"M2": 4, "M5": 5}}
+      ]
+    },
+    {
+      "job_id": 2,
+      "due_date": 25,
+      "tasks": [
+        {"name": "Op1", "machines": {"M1": 2, "M3": 3}},
+        {"name": "Op2", "machines": {"M3": 4, "M4": 6, "M5": 5}},
+        {"name": "Op3", "machines": {"M2": 3, "M4": 4}},
+        {"name": "Op4", "machines": {"M1": 6, "M2": 5}}
+      ]
+    },
+    {
+      "job_id": 3,
+      "due_date": 22,
+      "tasks": [
+        {"name": "Op1", "machines": {"M2": 4, "M3": 5}},
+        {"name": "Op2", "machines": {"M1": 3, "M5": 6}},
+        {"name": "Op3", "machines": {"M3": 5, "M4": 4}},
+        {"name": "Op4", "machines": {"M1": 3, "M5": 5}}
+      ]
+    },
+    {
+      "job_id": 4,
+      "due_date": 35,
+      "tasks": [
+        {"name": "Op1", "machines": {"M1": 5, "M2": 6, "M3": 4}},
+        {"name": "Op2", "machines": {"M4": 7, "M5": 5}},
+        {"name": "Op3", "machines": {"M2": 6, "M5": 8}},
+        {"name": "Op4", "machines": {"M3": 5, "M4": 4}},
+        {"name": "Op5", "machines": {"M1": 4, "M2": 5}}
+      ]
+    },
+    {
+      "job_id": 5,
+      "due_date": 30,
+      "tasks": [
+        {"name": "Op1", "machines": {"M1": 3, "M2": 4, "M5": 5}},
+        {"name": "Op2", "machines": {"M3": 5, "M4": 6}},
+        {"name": "Op3", "machines": {"M2": 4, "M5": 3}},
+        {"name": "Op4", "machines": {"M1": 2, "M3": 3}}
+      ]
+    }
+  ]
+}
+
+
